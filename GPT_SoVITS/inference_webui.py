@@ -767,6 +767,7 @@ def get_tts_wav(
     sample_steps=8,
     if_sr=False,
     pause_second=0.3,
+    device_override = None
 ):
     global cache
     if ref_wav_path:
@@ -784,6 +785,8 @@ def get_tts_wav(
         ref_free = False  # s2v3暂不支持ref_free
     else:
         if_sr = False
+    if device_override:
+        device = device_override
     if model_version not in {"v3", "v4", "v2Pro", "v2ProPlus"}:
         clean_bigvgan_model()
         clean_hifigan_model()
