@@ -767,8 +767,12 @@ def get_tts_wav(
     sample_steps=8,
     if_sr=False,
     pause_second=0.3,
+    device_override=None
 ):
     global cache
+    global device
+    if device_override:
+        device = device_override
     if ref_wav_path:
         pass
     else:
